@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: catalog
+          uri: http://service-catalog:8081
+          predicates:
+            - Path=/api/v1/pizzas/**
